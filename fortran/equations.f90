@@ -2284,6 +2284,9 @@
             adotoa, k, EV%Kf(1), ay, ayprime, EV%w_ix)
         dgrho = dgrho + dgrho_de
         dgq = dgq + dgq_de
+    else
+        dgrho_de = 0._dl
+        dgq_de = 0._dl
     end if
 
     !  Get sigma (shear) and z from the constraints
@@ -2704,8 +2707,8 @@
             EV%OutputTransfer(Transfer_Newt_vel_cdm)=  -k*sigma/adotoa
             EV%OutputTransfer(Transfer_Newt_vel_baryon) = -k*(vb + sigma)/adotoa
             EV%OutputTransfer(Transfer_vel_baryon_cdm) = vb
-            EV%OutputTransfer(Transfer_de) = clxc
-            EV%OutputTransfer(Transfer_vel_de) = clxc
+            EV%OutputTransfer(Transfer_de) = dgrho_de
+            EV%OutputTransfer(Transfer_vel_de) = dgq_de
             if (State%CP%do21cm) then
                 Tspin = State%CP%Recomb%T_s(a)
                 xe = State%CP%Recomb%x_e(a)
