@@ -2705,7 +2705,7 @@
             EV%OutputTransfer(Transfer_Newt_vel_baryon) = -k*(vb + sigma)/adotoa
             EV%OutputTransfer(Transfer_vel_baryon_cdm) = vb
             EV%OutputTransfer(Transfer_de) = clxc
-            EV%OutputTransfer(Transfer_v_de) = clxc
+            EV%OutputTransfer(Transfer_vel_de) = clxc
             if (State%CP%do21cm) then
                 Tspin = State%CP%Recomb%T_s(a)
                 xe = State%CP%Recomb%x_e(a)
